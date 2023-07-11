@@ -6,7 +6,7 @@
     "rootDir": "./", 
     "baseUrl": "./", 
     "paths": {
-      "@": ["src/*"]
+      "@/*": ["src/*"]
     }, 
     "forceConsistentCasingInFileNames": true,
     "strict": true,
