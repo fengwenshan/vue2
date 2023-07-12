@@ -2,11 +2,19 @@
 ## rollup
 
 ```shell
-pnpm i rollup rollup-plugin-typescript2 @rollup/plugin-alias typescript tslib eslint jest -D
-# tslib TypeScript 的运行时库
-# @rollup/plugin-alias 配置别名
-
-# 配置jest, 在package.json配置：scripts.test: "jest"
+pnpm i 
+  rollup 
+  rollup-plugin-typescript2 
+  @rollup/plugin-alias  # 配置别名
+  @babel/preset-env # babel 将高级语法转成低级语法
+  rollup-plugin-babel # babel与rollup连接
+  rollup-plugin-serve # 实现静态服务
+  typescript 
+  @types/node
+  tslib  #  TypeScript 的运行时库
+  eslint 
+  jest # 单元测试
+-D
 ```
 
 
