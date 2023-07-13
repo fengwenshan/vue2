@@ -21,11 +21,12 @@ export function initMixin(Vue: typeof Component) {
     if(options?._Components) {
       // initInternalComponent(vm, options as any)
     } else {
-      this.$options = mergeOptions(
-        resolveConstructorOptions(this.constructor as typeof Component),
-        options,
-        this
-      ) ;
+      this.$options = options;
+      // this.$options = mergeOptions(
+      //   resolveConstructorOptions(this.constructor as typeof Component),
+      //   options,
+      //   this
+      // ) ;
       // this.$options = mergeOptions(
       //   resolveConstructorOptions(vm.constructor as any),
       //   options || {},

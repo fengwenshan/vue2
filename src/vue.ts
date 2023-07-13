@@ -6,6 +6,7 @@ import { eventsMixin } from './mixin/event';
 import { lifecycleMixin } from './mixin/lifecycle';
 import { ComponentOptions } from './type/component';
 
+// 追踪到Vue.js的整个加载和初始化过程
 export class Vue {
   static options: Record<string, unknown> = {};
   _isVue: boolean = true;
