@@ -1,19 +1,24 @@
-
+配合这个链接看代码
+http://caibaojian.com/vue-design/art/81vue-lexical-analysis.html
 ## rollup
 
 ```shell
 pnpm i 
-  rollup 
-  rollup-plugin-typescript2 
+  rollup # 打包工具
   @rollup/plugin-alias  # 配置别名
   @babel/preset-env # babel 将高级语法转成低级语法
+  @babel/core # babel核心包
   rollup-plugin-babel # babel与rollup连接
   rollup-plugin-serve # 实现静态服务
+  cross-env # 设置环境变量
+  rollup-plugin-typescript2 # 编译TS文件
   typescript 
   @types/node
   tslib  #  TypeScript 的运行时库
   eslint 
-  jest # 单元测试
+  jest # 单元测试 还需要安装下面两个   
+  @babel/preset-typescript # 在babel配置文件presets数组中添加
+  ts-jest # TypeScript 预处理器，支持 Jest 的源映射，允许您使用 Jest 来测试用 TypeScript 编写的项目
 -D
 ```
 
