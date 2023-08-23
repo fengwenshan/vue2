@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rollup -c -w --configPlugin typescript2 ",
+    "build": "rollup -c -w --configPlugin typescript2",
     "dev": "cross-env ENV=development rollup -w  & ts-node ./scripts/build.js",
     "jest": "jest",
     "watch": "ts-node ./scripts/build.ts"

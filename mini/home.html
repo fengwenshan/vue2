@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function defineReactive(target, key, value) {
+      const a = 10000
+      Object.defineProperty(target, key, {
+        get() {
+          return a
+        },
+        set(val) {
+          target[key] = value
+        }
+      })
+    }
+
+    const obj = {
+      a: 1
+    }
+    Object.keys(obj).forEach(key => {
+      defineReactive(obj, key, obj[key])
+    })
+    
+    console.log(obj.a)
+  </script>
+</body>
+</html>
