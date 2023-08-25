@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!--
+    官方提供template模板的四种方式：
+      - options.template 字符串标签模板
+      - options.template: '#temp' 在template 拥有id属性temp的元素中
+      - options.template: '#temp' 在script 拥有 type="text/x-template" id="xxx"的元素中
+      - options.render
+      - options.el
+  -->
+  <div id="app">
+
+  </div>
+  <script src="./vue.js" type="module"></script>
+  <script>
+    import Vue from './vue'
+    // 选择节点三种方式el, template, $mount
+    new Vue({
+      // el: '#app',
+      // template: '模板字符串'
+
+    })
+  </script>
+</body>
+</html>

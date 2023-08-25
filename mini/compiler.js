@@ -30,7 +30,6 @@ class Compiler {
         node.attributes.removeNamedItem(attrName.name);
       }
     });
-    
   }
   updater(node, method, value) {
     this[method + 'Updater']?.call(this, node, value);

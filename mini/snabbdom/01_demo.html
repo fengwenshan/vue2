@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="./snabbdom.js" type="module"></script>
+  <script>
+    import { init, classModule, styleModule } from './snabbdom'
+
+    /**
+     * 核心功能暴露一个 init 函数， init 函数接收一个包含模块的数组并返回一个具有指定功能的 patch 函数 。
+     * 接受两个参数
+     *    一个dom元素或者一个表示当前视图vnode
+     *    一个表示新的、需要更新的vnode
+     * 如果传入第一个参数传入一个包含父节点的dom元素，那么新的vnode将转换为一个DOM节点并替换传入的元素。如果第一个参数传入是一个vnode则根据新的vnode相关描述进行修改
+     * 所有传入的oldvnode都必须被传入过patch函数，因为snabbdom将信息存储在vnode中，这避免了重复创新vonde树
+     * patch(oldVnode, newVnode)
+     *
+     * 卸载就是替换成注释节点
+     * patch(oldVnode, h("!", { hooks: { post: () => { /* patch complete * } } }))
+     */
+    const patch = init([classModule, styleModule])
+
+
+  </script>
+</body>
+</html>
