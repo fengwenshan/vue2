@@ -1,5 +1,6 @@
 module.exports = {
   'env': {
+    'node': true,
     'browser': true,
     'es2021': true
   },
@@ -7,6 +8,9 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended'
   ],
+  'globals': {
+    'process': true
+  },
   'overrides': [
     {
       'env': {
@@ -29,6 +33,7 @@ module.exports = {
     '@typescript-eslint'
   ],
   'rules': {
+    '@typescript-eslint/no-var-requires': 0,
     'indent': [
       'error',
       2

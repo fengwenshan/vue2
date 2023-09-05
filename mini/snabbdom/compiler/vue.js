@@ -4,7 +4,8 @@ class Vue {
     this.$options = options;
     const { el } = options;
     // el 实例挂载
-    // 这里有个问题，如果根组件挂载我使用$mount不用el那怎么办
+    // 这里有个问题，如果根组件挂载我使用$mount不用el那怎么办?
+    // 如果没有el就不会进入这个判断，那么他就会调用Vue实例上的上面的$mount
     el && this.$mount(el);
 
   }

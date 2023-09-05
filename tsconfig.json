@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2016", 
+    "target": "ES5", 
     "esModuleInterop": true,
     "module": "ESNext", 
     "baseUrl": "./", 
@@ -10,6 +10,8 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "noImplicitThis": false
+    "noImplicitThis": false,
+    "sourceMap": true
   },
+  "include": ["src/*.ts", "scripts/*.ts", "scripts/build.js"]
 }

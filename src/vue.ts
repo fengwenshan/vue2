@@ -4,38 +4,21 @@ import { stateMixin } from './mixin/state';
 import { renderMixin } from './mixin/render';
 import { eventsMixin } from './mixin/event';
 import { lifecycleMixin } from './mixin/lifecycle';
-import { Component, ComponentOptions } from './type/component';
+import {Options, VmWatch} from './type/component';
+import Watcher from '@/observer/watcher';
 
 // 追踪到Vue.js的整个加载和初始化过程
 export default class Vue {
-  // static options: Record<string, unknown> = {};
-  // _isVue: boolean = true;
-  // __v_skip: boolean = true;
-  // _uid: number = 0;
-  // _self?: Vue;
-  // // $options: { 
-  // //   el?: string
-  // //   parent?: Component
-  // //   _propKeys?: string[]
-  // // } = {  };
-  // $parent?: Vue;
-  // $root?: Vue;
-  // $children?: Vue[];
-  // $refs?: any;
-  // _watcher?: any;
-  // _inactive?: any;
-  // _directInactive?: any;
-  // _isMounted?: any;
-  // _isDestroyed?: any;
-  // _isBeingDestroyed?: any;
-  _data: Record<any, any> = {};
-  $options: ComponentOptions;
-  _init: (options: ComponentOptions) => void = () => {};
-  $mount: (el: string) => void = () => {};
+  $options: Options;
+  $data: Record<any, any> = {};
+  _init!: (options: Options) => void;
+  _watchers: Watcher[];
+  $watch!: () => () => void;// VmWatch;
 
-  constructor(options: ComponentOptions) {
+  constructor(options: Options) {
     if(options && isPlainObject(options)){
       this.$options = options;
+      this._watchers = [];
       // Vue源码处理："noImplicitThis": false 来禁用隐式 any 类型的警告。
       this._init(options);
     } else {
@@ -55,5 +38,7 @@ eventsMixin(Vue);
 lifecycleMixin(Vue);
 // render处理: 原型添加 $nextTick、_render
 renderMixin(Vue);
+
+console.log(Vue, '99999');
 
 

@@ -1,6 +1,6 @@
 {
   "presets": [
-    "@babel/preset-env",
+    "@babel/preset-env", // 插件映射或者说集合
     "@babel/preset-typescript"
   ]
 }

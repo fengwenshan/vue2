@@ -2,43 +2,44 @@
 
 import { remove } from '@/shared/util';
 import type Watcher from './watcher';
-let uid = 0;
-export default class Dep {
-  static target?: Watcher;
+
+let uuid = 0;
+class Dep {
+  static target?: Watcher | null;
   id: number;
-  subs: Array<Watcher>;
+  subs: Watcher[];
   constructor() {
-    this.id = uid++;
+    this.id = uuid++;
     this.subs = [];
   }
   addSub(sub: Watcher) {
     this.subs.push(sub);
   }
-  remove(sub: Watcher) {
+  removeSub(sub: Watcher) {
     remove(this.subs, sub);
   }
   depend() {
-    if(Dep.target) {
-      Dep.target.addDep(this);
-    }
+    Dep.target && Dep.target.addDep(this);
   }
   notify() {
-    this.subs.slice().forEach(sub => {
-      sub.update();
-    });
+    const subs = this.subs.slice();
+    subs.forEach(item => { item.update(); });
   }
 }
 
-Dep.target = undefined;
-
-const targetStack: (Watcher | undefined)[] = [];
-
-export const pushTarget = (target?: Watcher) =>  {
+Dep.target = null;
+const targetStack: Watcher[] = [];
+function pushTarget(target: Watcher) {
   targetStack.push(target);
   Dep.target = target;
-};
-
-export const popTarget = () => {
+}
+function popTarget() {
   targetStack.pop();
   Dep.target = targetStack[targetStack.length - 1];
+}
+export default Dep;
+
+export {
+  pushTarget,
+  popTarget
 };
