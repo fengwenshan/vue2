@@ -8,7 +8,10 @@ module.exports = {
   devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, 'public'),
-    filename: 'vue.js'
+    filename: 'vue.js',
+    library: 'Vue',
+    libraryTarget: 'umd',
+    libraryExport: 'default'
   },
   resolve: {
     alias: {

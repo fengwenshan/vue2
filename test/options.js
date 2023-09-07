@@ -70,15 +70,13 @@ const vm = new Vue({
       this.foo.bar = !this.foo.bar;
     },
     arrPush() {
-      this.arr.push(5);
+      arr.push(5);
     },
     arrObjPush() {
-      this.arrObj.push({
+      arrObj.push({
         id: 10,
         value: 'tab4'
       });
     }
   }
 });
-
-vm.arr.push(5);

@@ -13,5 +13,5 @@
     "noImplicitThis": false,
     "sourceMap": true
   },
-  "include": ["src/*.ts", "scripts/*.ts", "scripts/build.js"]
+  "include": ["src/*.ts", "scripts/*.ts", "scripts/go-esbuild.js"]
 }

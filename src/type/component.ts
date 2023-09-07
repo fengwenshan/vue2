@@ -1,6 +1,4 @@
-export interface Options {
-  _isComponent?: unknown // any
-}
+
 export type BaseType = string | number | boolean
 export type PropsBaseType = BaseType | symbol | Date | (() => any) // | Record<string, any>
 export type PropsValidatorType = PropsBaseType[]
@@ -31,17 +29,18 @@ export type Hook = 'beforeCreate' | 'created' | 'beforeMount' | 'mounted' | 'bef
 
 
 export declare class Component {
-
-  constructor(options?: Options);
+  constructor(options: Options);
   _init: (options: Options) => void;
   $watch: VmWatch;
+  $data: Record<string, any>;
+  $options: Options;
   [prop: string]: any
 }
 
 
-// type DataFunction<T extends Record<any, any>> = () => T;
-export interface Options extends Record<string, unknown> {
-
+export interface Options {
+  // _isComponent?: unknown // any
+  data: (() => Record<string, any>) | Record<string, any>
 }
 
 

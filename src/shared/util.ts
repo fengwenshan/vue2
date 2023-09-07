@@ -15,12 +15,17 @@
 */
 export const unicodeRegExp = /a-zA-Z\u00B7\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u037D\u037F-\u1FFF\u200C-\u200D\u203F-\u2040\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD/;
 
-const _toString = Object.prototype.toString;
 
-export const isPlainObject = (val: unknown): val is Record<string, unknown>  => _toString.call(val) === '[object Object]';
-export const isObject = (val: unknown): val is  Record<any, any> => val !== null && typeof val === 'object';
-export const isFunction = (val: unknown): val is () => Record<any, any> => typeof val === 'function';
+export const def = (target: Record<string, any>, sourKey: string, value: any, enumerable?: boolean) => {
+  return Object.defineProperty(target, sourKey, {
+    configurable: true,
+    enumerable: !!enumerable, // 默认不可枚举
+    writable: true,
+    value,
+  });
+};
 
+export const hasProto = '__proto__' in {};
 /**
  * @description 解析字符串路径
  * 

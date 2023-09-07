@@ -1,15 +1,8 @@
 import { observe, proxy } from '@/observer/observer';
-import { isFunction, isPlainObject } from '@/shared/util';
+import { isFunction, isPlainObject } from '@/shared/is';
 import {Component, PropsType, WatchFn, WatchObject, WatchOptions} from '@/type/component';
 
 
-export function initProxy(vm: Component) {
-  console.log(vm);
-}
-
-export function initInject(vm: Component) {
-  console.log(vm);
-}
 /**
  * 
  * @param vm 
@@ -18,49 +11,12 @@ export function initState(vm: Component) {
   const keys = Object.keys(vm.$data);
   // 代理到vue实例上
   keys.forEach(key => {
-    proxy(vm, '_data', key);
+    proxy(vm, '$data', key);
   });
-  // observe(data);
-
-
-  // 初始化方法
-
-  console.log(vm, '111');
-  // vm._watcher = [];
-  // const opts = vm.$options;
-  // if(opts.props) initProps(vm, opts.props);
-  // if(opts.methods) initMethods(vm, opts.methods);
-  // if(opts.data) {
-  //   initData(vm);
-  // } else {
-  //   observe(vm._data = {}, true);
-  // }
-  // console.log(vm);
-}
-
-// function validateProp(key: string, propOptions: PropsType, vm: Component) {
-//   const prop = propOptions[key];
-//   const absent = !hasOwn()
-// }
-export function initProps(vm: Component, propsOptions: PropsType) {
-  // const props = vm._props = {};
-  // const keys: string[] = vm.$options._propKeys = [];
-  // // const isRoot = !vm.$parent;
-  // // // 切换响应式，把响应式关掉
-  // for(const key in propsOptions) {
-  //   // keys.push(key);
-  //   defineReactive(props, key, true);
-  //   if(!(key in vm)) {
-  //     proxy(vm, '_props', key);
-  //   }
-  // }
-  // // // 切换响应式，把响应式开启
-  
-}
-
-export function initProvide(vm: Component) {
+  observe(vm.$data);
   console.log(vm);
 }
+
 
 /**
  * 整理watch参数，

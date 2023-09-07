@@ -1,5 +1,6 @@
-import {Component, WatcherOptions, WatchFn} from '@/type/component';
-import {isObject, parsePath} from '@/shared/util';
+import { Component, WatcherOptions, WatchFn } from '@/type/component';
+import { isObject } from '@/shared/is';
+import { parsePath } from '@/shared/util';
 import type Dep from './dep';
 import { popTarget, pushTarget } from './dep';
 import { queueWatcher } from '@/observer/scheduler';
